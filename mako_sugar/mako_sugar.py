@@ -1,5 +1,25 @@
 import re
 
+def sugar(exclude=[]):
+    """build the preprocessor function
+    
+    Exclude any undesired preprocessors.
+    """
+    preprocessors = {
+        'import': convert_imports,
+        'def': convert_defs,
+        'call': convert_calls
+    }
+    for ex in exclude:
+        del preprocessors[ex]
+    
+    def process(text):
+        for processor in preprocessors.values():
+            text = processor(text)
+        return text
+        
+    return process
+
 def _sub(text, pattern, replace):
     return re.sub(pattern, replace, text, flags=re.MULTILINE)
 

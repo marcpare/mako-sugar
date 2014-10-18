@@ -1,11 +1,8 @@
-import re
 import unittest
 from nose.tools import *
 from mako.template import Template
 from mako_sugar import convert_calls, convert_defs, convert_imports
-
-def result_lines(result):
-    return [x.strip() for x in re.split(r'\r?\n', re.sub(r' +', ' ', result)) if x.strip() != '']
+from test.util import result_lines
 
 class NamespaceTest(unittest.TestCase):
     

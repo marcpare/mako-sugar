@@ -17,8 +17,9 @@ instead of:
     
 Install with:
 
-        t = Template(..., preprocessor=convert_calls)
-
-or
+        from mako_sugar import sugar
         
-        TemplateLookup(preprocessor=convert_calls)
+        t = Template(..., preprocessor=sugar())
+        t = Template(..., preprocess=sugar())
+        t = Template(..., preprocess=sugar(exclude=['def', 'call', 'import']))
+        TemplateLookup(preprocessor=sugar())
