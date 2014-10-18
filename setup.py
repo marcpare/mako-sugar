@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='mako-sugar',
+    name='mako_sugar',
     version='0.1.0',
     author=u'Marc Paré',
     author_email='marc@smallredtile.com',
